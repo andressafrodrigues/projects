@@ -2,13 +2,10 @@
 	$server   = "localhost";
 	$username = "root";
 	$password = "";
-	$conn     = mysql_connect($server, $username, $password);
+	$database = "db_quiz";
 
-	if (!$conn) {
-		die('Ocorreu um erro ao conectar: ' . mysql_error());
-	} else {
-		echo "Conexao efetuada com sucesso!";
-	}
+	$conn     = mysql_connect($server, $username, $password) or die();
+	$teste    = mysql_select_db($database, $conn);
 
 	mysql_close($conn);
 
