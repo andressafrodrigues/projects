@@ -263,11 +263,11 @@
                   <form action="model/quiz.php" id="formQuiz" method="POST">
                     <div class="form-group">
                       <label for="name">Nome: </label>
-                      <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Insira o título do Quiz">
+                      <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Insira o título do Quiz" required="true">
                     </div>
                     <div class="form-group">
                       <label for="description">Descrição</label>
-                      <input type="text" class="form-control"id="description" name="description" placeholder="Descreva em poucas palavras;">
+                      <input type="text" class="form-control"id="description" name="description" placeholder="Descreva em poucas palavras;" required="true">
                     </div>
                     <button type="submit"  name="saveQuiz" id="saveQuiz" class="btn btn-primary">Salvar</button>
                   </form>

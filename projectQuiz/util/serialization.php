@@ -4,7 +4,6 @@
     * 
     */
 class Serialization {
-	
    	private static function objToArray($obj) {
    		$reflectionClass = new ReflectionClass($obj);
    		$methods = $reflectionClass->getMethods();

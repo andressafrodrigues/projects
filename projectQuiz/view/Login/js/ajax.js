@@ -39,7 +39,6 @@ $(document).ready(function(){
   });
 
   $("#formQuiz").submit(function(e){
-    console.log('oi');
     e.preventDefault();
     var formData = jQuery('#formQuiz').serialize();
     jQuery('[name="saveQuiz"]').prop("disabled",true);
@@ -48,25 +47,18 @@ $(document).ready(function(){
     jQuery.ajax({
       type: 'POST',
       url: '../../../action/quizAction.php?require=1',
-      data: formData,
       dataType: 'json',
-      success: function(response) {
-        if (response.result == true) {         
-          alert(response.message);
-          // jQuery('#formQuiz').trigger('reset');
-          // // setTimeout(function(){
-          // //   document.location.replace('admin.php');
-          // // }, 2000);
+      data: formData,
+      success: function(data){
+        if (data.result == true) {
+          alert(data.message);
         } else {
-          jQuery('#msgLogar').html('<p class="alert alert-danger">' + response["responseText"] + '</p>');
-          console.log(response);
+          console.log(data);
         }
       },
-      error: function(response) {
-        console.log('aa');
-        console.log(response.message);
+      error: function(data){
+        console.log(data.message);
       }
-
     });
     jQuery('[name="saveQuiz"]').prop("disabled",false);
     jQuery('#saveQuiz').html('Salvar');

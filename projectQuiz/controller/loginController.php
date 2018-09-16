@@ -5,7 +5,6 @@ include ('../config/ConnectionSQL.php');
 
 if (isset($_GET['login'])){
 	$response = null;
-
 	if ((isset($_POST['username'])) && (isset($_POST['password']))){	
 		$username = (isset($_REQUEST['username'])  ? $_REQUEST['username']  : '');
 		$password = (isset($_REQUEST['password'])  ? $_REQUEST['password']  : '');
@@ -37,7 +36,6 @@ if (isset($_GET['login'])){
 			$response['result'] = false;
 			$response['message'] = "Erro";	
 		}
-
 		$response = json_encode($response);
 		echo $response;
 	} 
