@@ -18,7 +18,7 @@ class Serialization {
    				} else if (is_array($value) && is_object($value [0])) {
    					$value = self::arrObjToArray($value);
    				}
-   				$arrReturn [$name] = $value;
+   				$arrReturn[$name] = $value;
    			}
    		}
    		return $arrReturn;
@@ -27,11 +27,11 @@ class Serialization {
    	private static function arrObjToArray($arrObj) {
    		if (!is_array($arrObj) && is_object($arrObj))
    			return self::objToArray($arrObj);
-   		$arrRetorno = array();
+   		$arrReturn = array();
    		foreach ($arrObj as $obj) {
-   			$arrRetorno [] = self::objToArray($obj);
+   			$arrReturn [] = self::objToArray($obj);
    		} 
-   		return $arrRetorno;
+   		return $arrReturn;
    	}
 
    	public static function serialize($obj) {

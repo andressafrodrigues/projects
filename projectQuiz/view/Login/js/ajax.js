@@ -72,25 +72,4 @@ $(document).ready(function(){
     jQuery('#saveQuiz').html('Salvar');
 
   });
-
-  //     jQuery("#saveQuiz").click(function () {
-  //            var dataForm = {
-  //                 name: $("input#name").val(),
-  //                 description: $("input#description").val(),
-  //            };
-  //    
-  //           $.ajax({
-  //                 url: "../../../../action/quizAction.php?req=1",
-  //                 type: "POST",
-  //                 dataType: "html",
-  //                 data: dataForm,
-  //                 success: function (result) {
-  //                      $("#resultado").html(result);
-  //                 },
-  //                 error: function (result) {
-  //                     console.log(result);
-  //                 }
-  //           });
-  //      });
-
 });
