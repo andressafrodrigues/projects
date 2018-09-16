@@ -13,5 +13,16 @@ if ($require) {
 
         echo ($result);
     }
+
+
+    if ($require == "2") {
+        $quiz = new Quiz();
+        $quiz->getId();
+        $quiz->getName();
+        $quiz->getDescription();
+        $res = $quizController->listQuiz($quiz);
+
+        echo $res;
+    }
 }
 ?>

@@ -10,12 +10,16 @@ class quizController {
         $this->quizDAO = new quizDAO();
     }
  
-    function saveQuiz(Quiz $quiz) {
+    public function saveQuiz(Quiz $quiz) {
         if ($quiz->getName() != "" && $quiz->getDescription() != "") {
             return $this->quizDAO->saveQuiz($quiz);
         } else {
             return false;
         }
+    }
+
+    public function listQuiz(Quiz $quiz){
+        return $this->quizDAO->getQuizListById($quiz);
     }
 }
  

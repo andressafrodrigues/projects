@@ -2,9 +2,6 @@
 // include ('../config/ConnectionSQL.php');
 session_start();
 
-
-
- 
 $require = filter_input(INPUT_GET, "require"); 
 if ($require) {
     require_once("../controller/loginController.php");

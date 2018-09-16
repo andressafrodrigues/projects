@@ -1,16 +1,16 @@
 <?php
- 
+
 require_once("../util/serialization.php");
 require_once("../model/quiz.php");
- 
+
 class quizDAO {
- 
+
     private $serialize;
- 
+
     public function __construct() {
         $this->serialize = new Serialization();
     }
- 
+
     public function saveQuiz(Quiz $quiz) {
         include "../config/ConnectionSQL.php";
         $resp = null;
@@ -33,5 +33,35 @@ class quizDAO {
         }
         $resp = json_encode($resp);
         return $resp;
+    }
+
+    public function getQuizListById(Quiz $quiz){
+        include "../config/ConnectionSQL.php";
+        $sql     = "SELECT * FROM tb_quiz ORDER BY updated_at";
+        $query   = mysqli_query($conn, $sql);
+        $num_row = mysqli_num_rows($query);
+
+        if ($num_row > 0) {
+            while($rows = mysqli_fetch_assoc($query)) {
+
+                if ($query = mysqli_query($conn, $sql)) {
+                    while ($row = mysqli_fetch_assoc($query)) {
+                        $idQuiz      = $row['id'];
+                        $name        = $row['name'];
+                        $desc        = htmlspecialchars($row['description']);
+                        if ($desc == null) {
+                            $desc = '';
+                        }
+                        $result['resp'][]  =['id' => $idQuiz, 
+                                              'name'=> $name, 
+                                              'description' => $desc
+                                            ];
+                    }
+                }
+            }
+        }
+     
+       $result = json_encode($result);
+        return $result;
     }
 }
