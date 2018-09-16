@@ -26,8 +26,8 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w" method="POST" id="formLogin" name="Login" action="model/User.php" >
-					<input type="hidden" name="acao" value="efetuarLogin" />
+				<form class="login100-form validate-form flex-sb flex-w" method="POST" id="formLogin" name="Login" action="controller/loginController.php" >
+					<!-- <input type="hidden" name="acao" value="efetuarLogin" /> -->
 					<span class="login100-form-title p-b-51">
 						Login
 					</span>
@@ -40,7 +40,7 @@
 					
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password" id="password">
+						<input class="input100" type="password" name="password" placeholder="Password" id="password">
 						<span class="focus-input100"></span>
 					</div>
 					<input class="input100" type="hidden" name="type" id="type" value="Login">
@@ -60,7 +60,7 @@
 					</div>
 
 					<div class="container-login100-form-btn m-t-17">
-						<button class="login100-form-btn" type="submit" name= "login" value="Login">
+						<button class="login100-form-btn" type="submit" name="login" value="Login">
 							Login
 						</button>
 					</div>
@@ -74,7 +74,7 @@
 	<div id="dropDownSelect1"></div>
 
 	<script src="view/login/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="view/Login/js/login.js"></script>
+	<script src="view/Login/js/ajax.js"></script>
 	<script src="view/login/vendor/animsition/js/animsition.min.js"></script>
 	<script src="view/login/vendor/bootstrap/js/popper.js"></script>
 	<script src="view/login/vendor/bootstrap/js/bootstrap.min.js"></script>

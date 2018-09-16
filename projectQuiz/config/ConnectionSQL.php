@@ -9,9 +9,15 @@ define('USER', 'root');
 define('PASSWORD', null);
 define('DATABASE', 'db_quiz');
 
-
+/*
 $conn = mysql_connect(HOST, USER, PASSWORD) or die('Erro na conexão');
 $selectdb = mysql_select_db(DATABASE, $conn);
+*/
+
+$conn = new mysqli(HOST,USER,PASSWORD,DATABASE);
+if ($conn->connect_errno){
+	echo "Failed to connect to MySQL: (" . $conn->connect_errno . ") " . $conn->connect_error;
+}
 
 /*
 $result   = mysql_query("SELECT * FROM tb_user WHERE username = " .$userlogin . " AND password=" . $userpass);
