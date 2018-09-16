@@ -1,13 +1,29 @@
 <?php 
-	$server   = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "db_quiz";
+/**
+ * @author Andressa Rodrigues <andressaf.rodrigues@hotmail.com>
+ 
+ */
 
-	$conn     = mysql_connect($server, $username, $password) or die();
-	$teste    = mysql_select_db($database, $conn);
+define('HOST', '127.0.0.1');
+define('USER', 'root');
+define('PASSWORD', null);
+define('DATABASE', 'db_quiz');
 
-	mysql_close($conn);
 
+$conn = mysql_connect(HOST, USER, PASSWORD) or die('Erro na conexão');
+$selectdb = mysql_select_db(DATABASE, $conn);
 
- ?>
+/*
+$result   = mysql_query("SELECT * FROM tb_user WHERE username = " .$userlogin . " AND password=" . $userpass);
+
+if (mysql_num_rows($result)> 0 ) {
+	$_SESSION['username'] = $userlogin;
+	$_SESSION['password'] = $userpass;
+    echo('Login efetuado');
+} else {
+	unset($_SESSION['username']);
+	unset($_SESSION['password']);
+}
+*/
+
+?>
