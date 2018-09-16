@@ -26,7 +26,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w" method="POST" id="formLogin" name="Login" action="controller/loginController.php" >
+				<form class="login100-form validate-form flex-sb flex-w" method="POST" id="formLogin" name="Login" action="action/loginAction.php" >
 					<!-- <input type="hidden" name="acao" value="efetuarLogin" /> -->
 					<span class="login100-form-title p-b-51">
 						Login
@@ -34,7 +34,7 @@
 
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" placeholder="Username" id="username" action="login.php">
+						<input class="input100" type="text" name="username" placeholder="Username" id="username" action="model/login.php">
 						<span class="focus-input100"></span>
 					</div>
 					

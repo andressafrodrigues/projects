@@ -10,25 +10,26 @@ $(document).ready(function(){
 
     jQuery.ajax({
       type: 'POST',
-      url: 'controller/loginController.php?login',
+      url: 'action/loginAction.php?require=1',
       data: formData,
       dataType: 'json',
       success: function(response) {
+        console.log('entrou no response');
         console.log(response.result);
         // alert('popopo');
-        if (response.result == true) {         
-          alert(response.message)
+        if (response.result == true) {  
+          // console.log(response.res);       
+          alert(response.message);
           jQuery('#formLogin').trigger('reset');
           setTimeout(function(){
             document.location.replace('admin.php');
           }, 2000);
 
-        } else {
-          jQuery('#msgLogar').html('<p class="alert alert-danger">' + response["responseText"] + '</p>');
         }
 
       },
       error: function(response) {
+        console.log('entrou no error');
         console.log(response);
       }
 
