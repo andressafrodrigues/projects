@@ -15,11 +15,10 @@ class questionDAO {
         include "../config/ConnectionSQL.php";
         $resp = null;
         try {
-            $sql = "INSERT INTO tb_question (subject, quiz_id, type) VALUES ('$question->subject', '$question->quiz_id', '$question->type')";
+            $sql = "INSERT INTO tb_question (subject,quiz_id,type) VALUES ('$question->subject', '$question->quizId', '$question->type')";
             $insert = false;
-            if (mysqli_query($conn, $sql)) {
+            if (mysqli_query($conn, $sql))
                 $insert = true;
-            }
             if ($insert) {
                 $resp['message'] = "Sua questão foi cadastrada!";
                 $resp['result']  = true;
@@ -33,5 +32,35 @@ class questionDAO {
         }
         $resp = json_encode($resp);
         return $resp;
+    }
+
+    public function getQuestionList() {
+        include "../config/ConnectionSQL.php";
+        $sql     = "SELECT * FROM tb_question";
+        $query   = mysqli_query($conn, $sql);
+        $num_row = mysqli_num_rows($query);
+
+        if ($num_row > 0) {
+            while($rows = mysqli_fetch_assoc($query)) {
+
+                if ($query = mysqli_query($conn, $sql)) {
+                    while ($row = mysqli_fetch_assoc($query)) {
+                        $idQuestion  = $row['id'];
+                        $subject     = htmlspecialchars($row['subject']);
+                        $type        = htmlspecialchars($row['type']);
+                        if ($desc == null) {
+                            $desc = '';
+                        }
+                        $result['resp'][] = [ 'id' => $idQuestion, 
+                                              'subject'=> $subject, 
+                                              'type' => $type
+                                            ];
+                    }
+                }
+            }
+        }
+
+        $result = json_encode($result);
+        return $result;
     }
 }

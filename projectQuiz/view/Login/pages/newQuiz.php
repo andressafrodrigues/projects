@@ -41,7 +41,7 @@
                   Preencha todos os campos
                 </div>
                 <div class="panel-body">
-
+                   <!-- <div class="alert alert-success msgSuccess" role="alert"> </div> -->
                   <form action="model/quiz.php" id="formQuiz" method="POST">
                     <div class="form-group">
                       <label for="name">Nome: </label>
@@ -58,6 +58,7 @@
             </div>
             <script src="../vendor/jquery/jquery.min.js"></script>
             <script src="../js/ajax.js"></script>
+            <script src="../js/listQuiz.js"></script>
             <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
             <script src="../vendor/metisMenu/metisMenu.min.js"></script>
             <script src="../dist/js/sb-admin-2.js"></script>

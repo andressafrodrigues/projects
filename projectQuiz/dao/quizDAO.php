@@ -3,7 +3,7 @@
 require_once("../util/serialization.php");
 require_once("../model/quiz.php");
 
-class quizDAO {
+class QuizDAO {
 
     private $serialize;
 
@@ -15,11 +15,13 @@ class quizDAO {
         include "../config/ConnectionSQL.php";
         $resp = null;
         try {
+
             $sql = "INSERT INTO tb_quiz (name, description) VALUES ('$quiz->name', '$quiz->description')";
             $insert = false;
-            if (mysqli_query($conn, $sql)) {
+
+            if (mysqli_query($conn, $sql)) 
                 $insert = true;
-            }
+            
             if ($insert) {
                 $resp['message'] = "Ei, sua pergunta foi cadastrada!";
                 $resp['result']  = true;
@@ -31,19 +33,18 @@ class quizDAO {
             $resp['message'] = "Ops, problemas ao cadastrar: " . $ex->getMessage();
             $resp['result']  = false;
         }
+
         $resp = json_encode($resp);
         return $resp;
     }
 
-    public function getQuizListById(Quiz $quiz){
+    public function getQuizList(){
         include "../config/ConnectionSQL.php";
         $sql     = "SELECT * FROM tb_quiz ORDER BY updated_at";
         $query   = mysqli_query($conn, $sql);
         $num_row = mysqli_num_rows($query);
-
         if ($num_row > 0) {
             while($rows = mysqli_fetch_assoc($query)) {
-
                 if ($query = mysqli_query($conn, $sql)) {
                     while ($row = mysqli_fetch_assoc($query)) {
                         $idQuiz      = $row['id'];
@@ -60,8 +61,7 @@ class quizDAO {
                 }
             }
         }
-     
-       $result = json_encode($result);
+        $result = json_encode($result);
         return $result;
     }
 }

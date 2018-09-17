@@ -5,7 +5,7 @@ session_start();
 $require = filter_input(INPUT_GET, "require"); 
 if ($require) {
     require_once("../controller/loginController.php");
-    $loginController = new loginController();
+    $loginController = new LoginController();
     if ($require == "1") {
         require_once("../model/login.php");
         $login = new Login();

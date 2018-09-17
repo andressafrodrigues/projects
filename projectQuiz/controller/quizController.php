@@ -1,13 +1,17 @@
 <?php
  
+/**
+ * @author Andressa Felipe Rodrigues <andressaf.rodrigues@hotmail.com>
+*/
 require_once("../dao/quizDAO.php");
- 
-class quizController {
+
+class QuizController
+{
  
     private $quizDAO;
  
     public function __construct() {
-        $this->quizDAO = new quizDAO();
+        $this->quizDAO = new QuizDAO();
     }
  
     public function saveQuiz(Quiz $quiz) {
@@ -18,8 +22,8 @@ class quizController {
         }
     }
 
-    public function listQuiz(Quiz $quiz){
-        return $this->quizDAO->getQuizListById($quiz);
+    public function listQuiz(){
+        return $this->quizDAO->getQuizList();
     }
 }
  

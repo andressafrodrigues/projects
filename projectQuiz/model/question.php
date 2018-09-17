@@ -13,7 +13,7 @@ class Question
         return $this->subject;
     }
 
-    function setSubject($name) {
+    function setSubject($subject) {
         $this->subject = $subject;
     }
 

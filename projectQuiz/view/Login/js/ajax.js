@@ -50,8 +50,12 @@ jQuery(document).ready(function(){
       dataType: 'json',
       data: formData,
       success: function(data){
+        alert('Sucesso! Você será direcionado para a tela de questões!');
         if (data.result == true) {
-          alert(data.message);
+          setTimeout(function(){
+            document.location.replace('newQuestion.php');
+          }, 3000);
+
         } else {
           console.log(data);
         }
@@ -62,30 +66,36 @@ jQuery(document).ready(function(){
     });
     jQuery('[name="saveQuiz"]').prop("disabled",false);
     jQuery('#saveQuiz').html('Salvar');
-
   });
 
+  jQuery("#formQuestion").submit(function(e){
+    e.preventDefault();
+    var formData = jQuery('#formQuestion').serialize();
+    jQuery('[name="saveQuestion"]').prop("disabled", true);
+    jQuery('[name="saveQuestion"]').html('Aguarde...');
 
-  jQuery(document).ready(function(){
-    jQuery('#tabela').empty();
     jQuery.ajax({
-      type:'POST',
+      type: 'POST',
+      url: '../../../action/questionAction.php?require=1',
       dataType: 'json',
-      url: '../../../action/quizAction.php?require=2',
+      data: formData,
       success: function(data){
-        console.log(data.resp);
-        console.log(data.resp.length);
-          console.log(data.resp[1].desc);
-        for (var i = data.resp.length - 1; i >= 0; i--) {
-          jQuery('#tableQuiz').append('<tr> '+
-                                        '<td>'+data.resp[i].id+'</td>'+
-                                        '<td>'+data.resp[i].name+'</td>'+
-                                        '<td>'+data.resp[i].description +'</td>'+
-                                        '<td><button class="btn-info" onclick="startQuiz('+data.resp[i].id+')">Iniciar Quiz</button></td>'+
-                                      '</tr>');
+        alert('Sucesso! Você será direcionado para a lista de Quiz!');
+        if (data.result == true) {
+          setTimeout(function(){
+            document.location.replace('list.php');
+          }, 3000);
+
+        } else {
+          alert("Erro ao tentar cadastrar Pergunta: "+data.message);
         }
+      },
+      error: function(data){
+        alert("Erro ao tentar cadastrar Pergunta: "+data.message);
       }
     });
-});
-  
+    jQuery('[name="saveQuestion"]').prop("disabled",false);
+    jQuery('#saveQuestion').html('Salvar');
+  });
+
 });

@@ -2,12 +2,12 @@
  
 require_once("../dao/loginDAO.php");
  
-class loginController {
+class LoginController {
  
     private $loginDAO;
  
     public function __construct() {
-        $this->loginDAO = new loginDAO();
+        $this->loginDAO = new LoginDAO();
     }
  
     public function logIn(Login $login) {
