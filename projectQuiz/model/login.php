@@ -8,19 +8,23 @@ class Login
 	public $username;
 	public $password;
 	
-    function getUsername() {
+    public function getUsername() 
+    {
         return $this->username;
     }
  
-    function setUsername($username) {
+    public function setUsername($username) 
+    {
         $this->username = $username;
     }
  
-    function getPassword() {
+    public function getPassword() 
+    {
         return $this->password;
     }
  
-    function setPassword($password) {
+    public function setPassword($password) 
+    {
         $this->password = $password;
     }
 }

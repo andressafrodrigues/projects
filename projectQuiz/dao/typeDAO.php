@@ -1,11 +1,13 @@
 <?php 
+/**
+ * @author Andressa Rodrigues <andressaf.rodrigues@hotmail.com>
+ */
 
 require_once("../util/serialization.php");
 require_once("../model/type.php");
 
 class TypeDAO 
 {
-
 	private $serialize;
 
 	public function __construct() {

@@ -1,5 +1,8 @@
 <?php 
-// include ('../config/ConnectionSQL.php');
+/**
+ * @author Andressa Rodrigues <andressaf.rodrigues@hotmail.com>
+ */
+
 session_start();
 
 $require = filter_input(INPUT_GET, "require"); 

@@ -9,27 +9,33 @@ class Question
     public $quizId;
     public $type;
 
-    function getSubject() {
+    public function getSubject() 
+    {
         return $this->subject;
     }
 
-    function setSubject($subject) {
+    public function setSubject($subject) 
+    {
         $this->subject = $subject;
     }
 
-    function getQuizId() {
+    public function getQuizId() 
+    {
         return $this->quizId;
     }
 
-    function setQuizId($quizId) {
+    public function setQuizId($quizId) 
+    {
         $this->quizId = $quizId;
     }
 
-    function getType() {
+    public function getType() 
+    {
         return $this->type;
     }
 
-    function setType($type) {
+    public function setType($type) 
+    {
         $this->type = $type;
     }
 

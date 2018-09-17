@@ -1,17 +1,23 @@
 <?php
- 
+/**
+ * @author Andressa Rodrigues <andressaf.rodrigues@hotmail.com>
+ */
+  
 require_once("../util/serialization.php");
 require_once("../model/question.php");
  
-class questionDAO {
+class questionDAO 
+{
  
     private $serialize;
  
-    public function __construct() {
+    public function __construct() 
+    {
         $this->serialize = new Serialization();
     }
  
-    public function saveQuestion(Question $question) {
+    public function saveQuestion(Question $question) 
+    {
         include "../config/ConnectionSQL.php";
         $resp = null;
         try {
@@ -34,7 +40,8 @@ class questionDAO {
         return $resp;
     }
 
-    public function getQuestionList() {
+    public function getQuestionList() 
+    {
         include "../config/ConnectionSQL.php";
         $sql     = "SELECT * FROM tb_question";
         $query   = mysqli_query($conn, $sql);

@@ -1,17 +1,23 @@
 <?php
+/**
+ * @author Andressa Rodrigues <andressaf.rodrigues@hotmail.com>
+ */
 
 require_once("../util/serialization.php");
 require_once("../model/quiz.php");
 
-class QuizDAO {
+class QuizDAO 
+{
 
     private $serialize;
 
-    public function __construct() {
+    public function __construct() 
+    {
         $this->serialize = new Serialization();
     }
 
-    public function saveQuiz(Quiz $quiz) {
+    public function saveQuiz(Quiz $quiz) 
+    {
         include "../config/ConnectionSQL.php";
         $resp = null;
         try {
@@ -38,7 +44,8 @@ class QuizDAO {
         return $resp;
     }
 
-    public function getQuizList(){
+    public function getQuizList()
+    {
         include "../config/ConnectionSQL.php";
         $sql     = "SELECT * FROM tb_quiz ORDER BY updated_at";
         $query   = mysqli_query($conn, $sql);

@@ -1,5 +1,8 @@
 <?php
- 
+/**
+ * @author Andressa Rodrigues <andressaf.rodrigues@hotmail.com>
+ */
+  
 $require = filter_input(INPUT_GET, "require"); 
 
 if ($require) {

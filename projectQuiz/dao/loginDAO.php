@@ -1,16 +1,23 @@
 <?php 
+/**
+ * @author Andressa Rodrigues <andressaf.rodrigues@hotmail.com>
+ */
+ 
 require_once("../util/serialization.php");
 require_once("../model/login.php");
  
-class LoginDAO {
+class LoginDAO 
+{
  
     private $serialize;
  
-    public function __construct() {
+    public function __construct() 
+    {
         $this->serialize = new Serialization();
     }
  
-    public function loginUser(Login $login) {
+    public function loginUser(Login $login) 
+    {
         include "../config/ConnectionSQL.php";
         $response = null;
         

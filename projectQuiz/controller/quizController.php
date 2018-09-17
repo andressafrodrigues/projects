@@ -3,6 +3,7 @@
 /**
  * @author Andressa Felipe Rodrigues <andressaf.rodrigues@hotmail.com>
 */
+
 require_once("../dao/quizDAO.php");
 
 class QuizController
@@ -10,11 +11,13 @@ class QuizController
  
     private $quizDAO;
  
-    public function __construct() {
+    public function __construct() 
+    {
         $this->quizDAO = new QuizDAO();
     }
  
-    public function saveQuiz(Quiz $quiz) {
+    public function saveQuiz(Quiz $quiz) 
+    {
         if ($quiz->getName() != "" && $quiz->getDescription() != "") {
             return $this->quizDAO->saveQuiz($quiz);
         } else {
@@ -22,7 +25,8 @@ class QuizController
         }
     }
 
-    public function listQuiz(){
+    public function listQuiz()
+    {
         return $this->quizDAO->getQuizList();
     }
 }

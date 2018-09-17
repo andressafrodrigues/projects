@@ -15,7 +15,8 @@ class TypeController
 		$this->typeDAO = new TypeDAO();
 	}
 
-    public function listTypes(){
+    public function listTypes()
+    {
         return $this->typeDAO->listType();
     }
 }
