@@ -83,7 +83,7 @@ jQuery(document).ready(function(){
         alert('Sucesso! Você será direcionado para a lista de Quiz!');
         if (data.result == true) {
           setTimeout(function(){
-            document.location.replace('list.php');
+            document.location.replace('listQuiz.php');
           }, 3000);
 
         } else {
