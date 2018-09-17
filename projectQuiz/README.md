@@ -1,8 +1,8 @@
-# ACESSO 
+#OBSERVAÇÕES 
 Username: trezo;
 Password: senha.
 
-#ADMIN
+Sobre o Admin:
 Ao logar, você será redirecionado ao Admin, onde haverá um menu lateral onde poderá acessar "Quiz"; 
 
 Na aba Quiz você terá acesso a Lista de Quizs cadastrados e a área para efetuar o cadastro;
