@@ -12,7 +12,7 @@ class LoginController {
  
     public function logIn(Login $login) {
         if ($login->getUsername() != "" && $login->getPassword() != "") {
-            return $this->loginDAO->logIn($login);
+            return $this->loginDAO->loginUser($login);
         } else {
             return false;
         }

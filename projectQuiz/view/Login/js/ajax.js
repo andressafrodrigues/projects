@@ -5,8 +5,6 @@ jQuery(document).ready(function(){
     e.preventDefault();
     var formData = jQuery('#formLogin').serialize();
     console.log(formData);
-    jQuery('[name="login"]').prop("disabled",true);
-    jQuery('[name="login"]').html('Aguarde...');
 
     jQuery.ajax({
       type: 'POST',
@@ -19,22 +17,26 @@ jQuery(document).ready(function(){
 
         if (response.result == true) {        
           alert(response.message);
+          jQuery('[name="login"]').prop("disabled",true);
+          jQuery('[name="login"]').html('Aguarde...');
           jQuery('input#username').prop('readonly', true);
           jQuery('input#password').prop('readonly', true);
           setTimeout(function(){
             document.location.replace('view/Login/pages/admin.php');
           }, 2000);
 
+        } else {
+          jQuery('#login').html('Logar');
+          jQuery('[name="login"]').prop("disabled",false);
+          alert(response.message);
         }
 
       },
       error: function(response) {
-        console.log(response);
+        alert(response.message);
       }
 
     });
-    jQuery('[name="login"]').prop("disabled",false);
-    jQuery('#login').html('Logar');
 
   });
 

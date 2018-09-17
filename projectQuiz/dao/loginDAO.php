@@ -10,7 +10,7 @@ class LoginDAO {
         $this->serialize = new Serialization();
     }
  
-    public function logIn(Login $login) {
+    public function loginUser(Login $login) {
         include "../config/ConnectionSQL.php";
         $response = null;
         
@@ -21,16 +21,17 @@ class LoginDAO {
 			          WHERE username = '$login->username' 
 			          AND password = '$login->password'";
 
+            $selectUser = mysqli_query($conn, $query);
             $login = false;
 
-            if (mysqli_query($conn, $query))
+            if (mysqli_num_rows($selectUser)> 0)
                 $login = true;
 
-            if ($login) {
+            if ($login == true) {
                 $response['message'] = "Login efetuado com sucesso!";
                 $response['result']  = true;
             } else {
-                $response['message'] = "Ops, algo deu errado! ):";
+                $response['message'] = "Login errado!";
                 $response['result']  = false;
             }
         } catch (Exception $ex) {
