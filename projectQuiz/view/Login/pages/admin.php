@@ -1,5 +1,9 @@
 <?php  
 	include "../../../config/config.php";
+
+	// include("../../../action/loginAction.php");
+	// if(!isLoggedIn())
+	// 	var_dump("Você não está logado!");
  ?>
 <!DOCTYPE html>
 <html lang="en">
