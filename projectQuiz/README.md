@@ -1,4 +1,4 @@
-#OBSERVAÇÕES 
+#LEIA ATENTAMENTE
 Username: trezo;
 Password: senha.
 
